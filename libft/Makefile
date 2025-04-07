@@ -6,7 +6,7 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/21 14:49:20 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/03/05 16:27:47 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/03/31 17:25:41 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,9 +69,8 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-
 	rm -f $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 PHONY: all clean fclean re

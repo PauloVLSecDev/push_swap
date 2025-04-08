@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:33:39 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/07 21:43:45 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:47:04 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void check_range_of_number(char **argv)
     int int_max;
 
     int_min -2147483648;
-    int_min 2147483647;
+    int_max 2147483647;
 
     if (ft_atoll(argv) < int_min || ft_atoll(argv) > int_max)
     {

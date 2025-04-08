@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:33:39 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/07 21:31:59 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:43:45 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,16 @@ long long     ft_atoll(char *str)
 
 void check_range_of_number(char **argv)
 {
-    long long llmin;
-    long long llmax;
+    int int_min;
+    int int_max;
 
-    llmin = -9223372036854775808;
-    llmax = 9223372036854775807;
-    if (ft_atoll(argv) < llmin || ft_atoll(argv) > llmax)
+    int_min -2147483648;
+    int_min 2147483647;
+
+    if (ft_atoll(argv) < int_min || ft_atoll(argv) > int_max)
     {
-           ft_printf("Number out renge"); 
-           exit(100);
+           ft_printf("Number out range"); 
+           exit(1);
     }
     return ;
 }

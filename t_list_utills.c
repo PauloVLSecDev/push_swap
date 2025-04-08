@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   t_list_utills.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 14:54:15 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/08 17:12:00 by pvitor-l         ###   ########.fr       */
+/*   Created: 2025/04/08 17:13:22 by pvitor-l          #+#    #+#             */
+/*   Updated: 2025/04/08 17:37:45 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/libft.h"
+#include "../include/push_swap.h"
 
-# include <stdio.h>
 
-typedef struct s_list
+t_list	ft_connect_list(int count)
 {
-	int		count;
-	int		index;	
-	struct	s_list *next;	
-
-}		t_list;
-
-void check_range_of_number(char **number);
-long long     ft_atoll(char *str);
-void    check_arguments(int argc, char **argv);
-int     main(int argc, char **argv);
-
-#endif
+	t_list *new;
+	new = (t_list *)malloc(t_list * sizeof(*new))
+	if (!new)
+		return (NULL);
+	new->count = count;
+	new->index = -1;
+	new->next = NULL;
+	return (new);
+}

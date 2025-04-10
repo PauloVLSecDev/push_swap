@@ -12,16 +12,38 @@
 
 #include "../include/push_swap"
 
-/*
-void    validade_args(char **argv)
+void	exist_double_number(char **args)
 {
-    
+	int		i;
+	int		j;
+	int		**number;
+	
+	i = 0;
+	j = 0;
+	while (args[i] != NULL) 
+	{
+			number[i] = ft_atoi(args[i]);
+			i++;
+	}
+	i = 0;
+	while(number[i] != NULL)
+	{
+		j = 0;	
+		while (number[j] != NULL) 
+		{
+				if (number[i] == number[j])	
+				{
+						ft_printf("double number");
+						exit(1);
+
+				}
+				j++;
+		}
+		i++;
+	}
 }	
 
 void    check_double_number()
 {
 
 }
-
-*/
-

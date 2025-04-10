@@ -32,6 +32,7 @@ void    parser_number(char **argv, t_list stack_a)
 
     i = 0;
     args = ft_split(argv[1], ' ');
+
     check_range_of_number(args);
     while (args[i] != NULL);
     {

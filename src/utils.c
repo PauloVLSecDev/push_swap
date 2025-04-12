@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:33:39 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/11 21:49:56 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:43:39 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -83,11 +83,8 @@ int    ft_isnum(char *args)
     while (args[i] != '\0')
     {
         if (!ft_isdigit(args[i]))
-        {
-            return 1;
-           // ft_error("ERROR don't is number", 5);
-        }
+            return 0;
         i++;
     }
-    return 0;
+    return 1;
 }

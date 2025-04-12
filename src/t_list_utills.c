@@ -6,17 +6,17 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:13:22 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/11 19:11:49 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/12 17:30:11 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*
-t_list	ft_creatstack(int value)
+
+t_list	creat_node(int value)
 {
 	t_list *new;
-	new = (t_list *)malloc(t_list * sizeof(*new))
+	new = (t_list *)malloc(sizeof(t_list))
 	if (!new)
 		return (NULL);
 	new->value = value;
@@ -24,4 +24,4 @@ t_list	ft_creatstack(int value)
 	new->next = NULL;
 	return (new);
 }
-*/
+

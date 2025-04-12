@@ -6,7 +6,7 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 14:36:16 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/04/04 19:28:23 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/04/11 20:12:33 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ CFLAG = -Wall -Wextra -Werror -g3
 LIB_DIR = libft
 LIBFT = $(LIB-DIR)/libft.a
 DIR = src/
-SRC = $(DIR)main.c \
+SRC =	$(DIR)main.c \
+	$(DIR)utils.c \
+
 
 OBJ = $(SRC:.c=.o)
 

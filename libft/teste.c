@@ -2,53 +2,36 @@
 #include "libft.h"
 #include "stdlib.h"
 
-void	check_double_number(char **args)
+void	check_double_number(char **args, int num, int i )
 {
-	int		i;
-	int		j;
-	int		count;
-	int		*number = NULL;;
-	
-	i = 0;
-	j = 0;
-	count = 0;
-	while (args[count] != NULL) 
-			count++;
-	number = (int *)malloc(count * sizeof(number));
-	if (!number)
-		return ;
-	while (args[i] != NULL) 
-	{
-			number[i] = ft_atoi(args[i]);
-			i++;
-	}
-	i = 0;
-	while(number[i] < count)
-	{
-		j = i + 1;	
-		while (number[j] < count) 
+	i++;
+		while (args[i]) 
 		{
-				if (number[i] == number[j])	
-				{
-						ft_printf("double number \n");
-						free(number);
-						exit(1);
-				}
-				else
-					j++;
+			if (ft_atoi(args[i]) == num)
+			{
+				ft_printf("double number \n");
+				exit(1);
+			}
+			i++;
 		}
-		i++;
-	}
-	ft_printf("whitout double number\n");
-}	
+	return ;
+}
 
 int 	main(void)
 {
 	char **number;
-	char *args = "4234 2 34 42234 234 4 234 2334 234";
+	long	n;
+	int	i;
+	char *args = "42 2 34 42234 4 2334 234";
 
+	i = 0;
 	number = ft_split(args, ' ');
-	check_double_number(number);
+	while (number[i])
+	{
+		n = ft_atoi(number[i]);
+		check_double_number(number, n, i);
+		i++;
+	}
 	free_array(number);
 
 	return (0);

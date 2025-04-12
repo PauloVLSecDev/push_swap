@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:15 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/11 21:50:38 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:55:41 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ typedef struct s_list
 
 }	t_list;
 
-void    check_arguments(int argc, char **argv, int clear);
+void    check_arguments(int argc, char **argv);
 void check_range_of_number(char **number);
-void	check_double(char **args, int num, int i);
+void	check_double(char **args, int num, int i );
 long long     ft_atoll(char *str);
 int     main(int argc, char **argv);
 void    ft_error(char *msg, int code);
-int   ft_isnum(char *args);
+void    ft_isnum(char *argv);
 
 #endif

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
+/*                                                                            */ /*                                                        :::      ::::::::   */ /*   main.c                                             :+:      :+:    :+:   */ /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/08 17:40:31 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/11 20:24:22 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "../include/push_swap.h"
 
 int     main(int argc, char **argv)
 {
-    t_list  **stack_a;
-    t_list  **stack_b;
+    int clear;
 
-    stack_a = NULL;
-    stack_b = NULL;
+    clear = 0;
+    check_arguments(argc, argv, clear);
+//  t_list  **stack_a;
+//  t_list  **stack_b;
 
-    check_argument(argc, argv);
-    parser_number(argv, stack_a);
+//  stack_a = NULL; //  stack_b = NULL;
+//  parser_number(argv, stack_a);
     return (0);
 }
 
+/*
 void    parser_number(char **argv, t_list stack_a)
 {
     char    i;
@@ -33,28 +33,38 @@ void    parser_number(char **argv, t_list stack_a)
     i = 0;
     args = ft_split(argv[1], ' ');
 
-    check_range_of_number(args);
     while (args[i] != NULL);
     {
         stack_b = ft_conectlist(ft_atoi(args[i]));
         i++;
     }
     free_array(argv);
-}
+*/
 
-void    check_arguments(int argc, char **argv)
+void    check_arguments(int argc, char **argv, int clear)
 {
-    if (argc == 2)
-        return ;
-    else if (!argv || **argv == '\0')
+    long    num;
+    int     i;
+    char    **args;
+
+    i = 0;
+    if (argc != 2)
+        ft_error("ERRORS invalid arguments", 7);
+    if (argv == NULL)
+        ft_error("ERRORS invalid arguments", 7);
+    args = ft_split(argv[1], ' ');
+    while (args[i] != NULL)
     {
-        ft_printf("Expected; ./push_swap "1 3 5 2 6..."");
-        exit(0);
+	num = ft_atoi(args[i]);
+        if (ft_isnum(args[i]))
+                clear = 1;
+        check_range_of_number(args);
+    	check_double(args, num, i);
+    	i++;
     }
-    else
+    if (clear == 1 || !args)
     {
-        ft_printf("invalid args");
-        exit(0);
+        free_array(args);
     }
     return ;
 }

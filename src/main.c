@@ -4,45 +4,52 @@
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/12 17:30:35 by pvitor-l         ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */ /*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */ /*   Updated: 2025/04/12 20:04:36 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../include/push_swap.h"
 
 int     main(int argc, char **argv)
 {
     check_arguments(argc, argv);
     t_list  *stack_a;  
-    t_list  *stack_b;
+//  t_list  *stack_b;
 
     stack_a = NULL;
-    stack = (t_list)malloc(sizeof(t_list));
-
-    //  stack_b = NULL;
-    parser_number(argv, stack_a);
+    stack_a = (t_list *)malloc(sizeof(t_list));
+    init_stack(argv, stack_a);
     return (0);
 }
 
 
-void    init_stack(char **argv, t_list stack_a)
+t_list  *init_stack(char **argv, t_list *stack_a)
 {
-    char    i;
+    int    i;
     char    **args;
-    int     value = 0;
+    t_list  *new_node;
+    t_list  *temp = NULL;
 
     i = 0;
     args = ft_split(argv[1], ' ');
-    while (args[i]);
+    while (args[i] != NULL)
     {
-        value = ft_atoi(args[i]);
-        stack_a = create_node(value);
+        new_node = creat_node(ft_atoi(args[i]));
+        if (!new_node)
+        {
+            while (stack_a == NULL) 
+            {
+                *temp = *stack_a;  
+                stack_a = stack_a->next;
+                free(temp);
+            }
+            return (NULL);
+        }
+        push_back(&stack_a, new_node);
         i++;
     }
     free_array(args);
+    return (stack_a);
 }
 
 void    check_arguments(int argc, char **argv)
@@ -55,7 +62,7 @@ void    check_arguments(int argc, char **argv)
     if (argc != 2 || argv == NULL )
         ft_error("ERRORS invalid arguments", 7);
     args = ft_split(argv[1], ' ');
-    if (args == NULL)
+    if (args == NULL) // trocar o ft_printf para algum que escreva na saida de erro padrao fd 2
         ft_error("ERRORS memory alocation failed", 9);
     check_range_of_number(args);
     while (args[i] != NULL)

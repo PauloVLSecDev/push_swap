@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:15 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/12 20:03:59 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:23:22 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct s_list
 {
+	int	size;
 	int	value;
 	int	index;	
 	struct	s_list *next;	
@@ -34,5 +35,7 @@ long long     ft_atoll(char *str);
 int     main(int argc, char **argv);
 void    ft_error(char *msg, int code);
 int   ft_isnum(char *args);
+void normalize_stack(t_list **stack_a);
+int get_stack_size(t_list *stack);
 
 #endif

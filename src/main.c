@@ -4,7 +4,9 @@
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */ /*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */ /*   Updated: 2025/04/12 20:04:36 by pvitor-l         ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */
+/*   Updated: 2025/04/13 18:38:54 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -12,13 +14,14 @@
 
 int     main(int argc, char **argv)
 {
-    check_arguments(argc, argv);
     t_list  *stack_a;  
 //  t_list  *stack_b;
-
+    check_arguments(argc, argv);
     stack_a = NULL;
     stack_a = (t_list *)malloc(sizeof(t_list));
+    list_sort(stack_a);
     init_stack(argv, stack_a);
+    stack_a->size = get_stack_size(stack_a);
     return (0);
 }
 
@@ -62,7 +65,7 @@ void    check_arguments(int argc, char **argv)
     if (argc != 2 || argv == NULL )
         ft_error("ERRORS invalid arguments", 7);
     args = ft_split(argv[1], ' ');
-    if (args == NULL) // trocar o ft_printf para algum que escreva na saida de erro padrao fd 2
+    if (args == NULL)
         ft_error("ERRORS memory alocation failed", 9);
     check_range_of_number(args);
     while (args[i] != NULL)

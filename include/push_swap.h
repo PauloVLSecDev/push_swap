@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:15 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/13 17:23:22 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:26:09 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,18 @@ void    ft_error(char *msg, int code);
 int   ft_isnum(char *args);
 void normalize_stack(t_list **stack_a);
 int get_stack_size(t_list *stack);
+
+void    pa(t_list **stack_a, t_list **stack_b);
+void    pb(t_list **stack_a, t_list **stack_b);
+void	sa(t_list **stack_a);
+void	sb(t_list **stack_b);
+void	ra(t_list **stack_a);
+void	rb(t_list **stack_b);
+void	rra(t_list **stack_a);
+void	rrb(t_list **stack_b);
+//void    ss(t_list **stack_a, t_list **stack_b);
+//void    rr(t_list **stack_a, t_list **stack_b);
+//void    rrr(t_list **stack_a, t_list **stack_b);
+
 
 #endif

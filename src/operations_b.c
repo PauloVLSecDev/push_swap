@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 18:40:17 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/13 19:26:33 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:29:12 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void    pb(t_list **stack_a, t_list **stack_b)
    return ;
 }
 
-void sb(t_list *stack_b)
+void    sb(t_list **stack_b)
 {
     int temp;
     t_list *first;
@@ -35,16 +35,13 @@ void sb(t_list *stack_b)
     
     if (!*stack_b || !(*stack_b)->next)
         return ;
-    if (stack->size > 1)
-    {
-        first = *stack_b;
-        second = first->next;
+    first = *stack_b;
+    second = first->next;
 
-        temp = first->value;
-        first->value = second->value;
-        second->value = temp;
-        ft_printf("sb");
-    }
+    temp = first->value;
+    first->value = second->value;
+    second->value = temp;
+    ft_printf("sb");
     return ;
 }
 
@@ -64,5 +61,24 @@ void    rb(t_list **stack_b)
     last->next = first;
     first->next = NULL;
     ft_printf("rb");
+}
+
+void    rrb(t_list **stack_b)
+{
+    t_list *current;
+    t_list *previous;
+    
+    if (!*stack_b || !(*stack_b)->next)
+        return;
+    current = *stack_b;
+    previous = NULL;
+    while (current->next != NULL)
+    {
+        previous = current;
+        current = current->next;
+    }
+    current->next = *stack_b;
+    previous->next = NULL;
+    *stack_b = current;
 }
 

@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:33:19 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/13 19:15:19 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:12:06 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,13 @@ void sa(t_list **stack_a)
     
     if (!*stack_a || !(*stack_a)->next)
         return ;
-    if (stack->size > 1)
-    {
-        first = *stack_a;
-        second = first->next;
+    first = *stack_a;
+    second = first->next;
 
-        temp = first->value;
-        first->value = second->value;
-        second->value = temp;
-        ft_printf("sa");
-    }
+    temp = first->value;
+    first->value = second->value;
+    second->value = temp;
+    ft_printf("sa");
     return ;
 }
 
@@ -68,7 +65,27 @@ void    ra(t_list **stack_a)
     first->next = NULL;
 }
     
-void    rra(t_list **stack_a)
+void rra(t_list **stack_a)
 {
-
+    t_list *current;
+    t_list *previous;
+    
+    if (!*stack_a || !(*stack_a)->next)
+        return;
+    
+    current = *stack_a;
+    previous = NULL;
+    
+    while (current->next != NULL)
+    {
+        previous = current;
+        current = current->next;
+    }
+    
+    current->next = *stack_a;
+    
+    previous->next = NULL;
+    
+    *stack_a = current;
 }
+

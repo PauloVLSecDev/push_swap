@@ -1,15 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 19:33:31 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/11 16:36:08 by pvitor-l         ###   ########.fr       */
+/*   Created: 2025/04/14 15:45:58 by pvitor-l          #+#    #+#             */
+/*   Updated: 2025/04/14 17:41:16 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap"
+#include "../include/push_swap.h"
 
+void    ft_error(char *msg, int code)
+{
+    ft_putendl_fd(msg, 2);
+    exit(code);
+    return ;
 }

@@ -6,25 +6,102 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:53:56 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/13 18:37:36 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:57:37 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    sort_three(t_list *stack)
+void	sort_two(t_list **stack)
 {
-    int size;
-    if (size != 2)
-    {
-        if (stack->size == 2)
-            rotate_a(stack);
-    }
-    if (stack->value > stack->next->value)
-            sa(stack);
+    if ((*stack)->value > (*stack)->next->value)
+        sa(stack);
 }
 
-void    sort_five(t_list **stack)
+void	sort_three(t_list **stack)
 {
-            
+    int first;   
+    int	second;
+    int third;
+
+    first = (*stack)->value;
+    second = (*stack)->next->value;
+    third = (*stack)->next->next->value;
+
+    if (first > second && second > third)
+    {
+        sa(stack);
+        rra(stack);
+    }
+    else if (first > second && second < third && first > third)
+        ra(stack);
+    else if (first > second && second < third && first < third) sa(stack);
+    else if (first < second && second > third && first < third)
+    {
+        sa(stack);
+        ra(stack);
+    }
+    else if (first < second && second > third && first > third)
+        rra(stack);
+    return ;
+}
+
+void	sort_four(t_list **stack_a, t_list **stack_b)
+{
+	int	pos;
+	int	i;
+
+	i = 0;
+	pos = find_position(*stack_a, 0);
+	if (pos == 1)
+		sa(stack_a);
+	else if (pos == 2)
+	{
+		ra(stack_a);
+		ra(stack_a);
+	}
+	else if (pos == 3)
+		rra(stack_a);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
+}
+
+void	sort_five(t_list **stack_a, t_list **stack_b)
+{
+	int	pos;
+
+	pos = find_position(*stack_a, 0);
+	if (pos == 1)
+		sa(stack_a);
+	else if (pos == 2)
+	{
+		ra(stack_a);
+		ra(stack_a);
+	}
+	else if (pos == 3)
+	{
+		rra(stack_a);
+		rra(stack_a);
+	}
+	else if (pos == 4)
+		rra(stack_a);
+	pb(stack_a, stack_b);
+	sort_four(stack_a, stack_b);
+	pa(stack_a, stack_b);
+}
+
+void	sort_small(t_list **stack_a, t_list **stack_b)
+{
+	int	size;
+
+	size = get_stack_size(*stack_a);
+	if (size == 2)
+		sort_two(stack_a);
+	else if (size == 3)
+		sort_three(stack_a);
+	else if (size == 4)
+		sort_four(stack_a, stack_b);
+	else if (size == 5)
+		sort_five(stack_a, stack_b);
 }

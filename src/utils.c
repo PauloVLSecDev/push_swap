@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:33:39 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/12 16:43:39 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:51:07 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -15,7 +15,6 @@ long long     ft_atoll(char *str)
 {
     int         sign;
     long long   result;
-
     sign = 1;
     if (*str == '-')
     {
@@ -64,12 +63,6 @@ void	check_double(char **args, int num, int i )
         }
     	i++;
     }
-    return ;
-}
-void    ft_error(char *msg, int code)
-{
-    ft_printf("%s\n", msg);
-    exit(code);
     return ;
 }
 

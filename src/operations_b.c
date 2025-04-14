@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 18:40:17 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/13 20:29:12 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:45:24 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    pb(t_list **stack_a, t_list **stack_b)
 
    temp->next = *stack_b;
    *stack_b = temp;
-    ft_printf("pb");
+    ft_printf("pb\n");
    return ;
 }
 
@@ -41,7 +41,7 @@ void    sb(t_list **stack_b)
     temp = first->value;
     first->value = second->value;
     second->value = temp;
-    ft_printf("sb");
+    ft_printf("sb\n");
     return ;
 }
 
@@ -60,7 +60,7 @@ void    rb(t_list **stack_b)
         last = last->next;
     last->next = first;
     first->next = NULL;
-    ft_printf("rb");
+    ft_printf("rb\n");
 }
 
 void    rrb(t_list **stack_b)
@@ -80,5 +80,6 @@ void    rrb(t_list **stack_b)
     current->next = *stack_b;
     previous->next = NULL;
     *stack_b = current;
+    ft_printf("rrb\n");
 }
 

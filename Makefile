@@ -6,7 +6,7 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 14:36:16 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/04/13 19:37:47 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/04/14 17:04:08 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,15 @@ DIR = src/
 GREEN = \033[1;92m
 SRC =	$(DIR)main.c \
 	$(DIR)utils.c \
+	$(DIR)errors.c \
 	$(DIR)t_list_utils.c \
 	$(DIR)operations_a.c \
 	$(DIR)operations_b.c \
+	$(DIR)sort_number.c \
+	$(DIR)radix.c \
+	$(DIR)bits_funcs.c \
+	$(DIR)clear.c \
+	
 	
 OBJ = $(SRC:.c=.o)
 

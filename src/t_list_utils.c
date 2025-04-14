@@ -6,26 +6,11 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:13:22 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/13 15:47:27 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:49:36 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-int	list_sort(t_list *stack)
-{
-	t_list *current;
-	
-	current = stack;
-	if(stack == NULL || stack->next == NULL)
-	while (current->next != NULL)
-	{
-		if (current->value > current->next->value)	
-			return (0);
-		current = stack->next;
-	}
-	return (1);
-}
 
 t_list	*creat_node(int value)
 {
@@ -34,54 +19,69 @@ t_list	*creat_node(int value)
 	if (!new_node)
 		return (NULL);
 	new_node->value = value;
-	new_node->index = -1;
+	new_node->index = 0;
 	new_node->next = NULL;
 	return (new_node);
 }
 
 void	push_back(t_list **stack, t_list *new_node)
 {
-	t_list *current;
+	t_list	*temp;
 
-	if (!new_node)	
-		return;
-	if(*stack == NULL)
+	if (!*stack)
 	{
 		*stack = new_node;
 		return ;
 	}
-	
-	current = *stack;
-	while (current->next != NULL)
-		current = current->next;
-	current = new_node;
+	temp = *stack;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new_node;
 }
 
-void normalize_stack(t_list **stack_a)
+void	normalize_stack(t_list **stack_a)
 {
-    t_list *current;
-    int min_value;
-    
-    current = *stack_a;
-    min_value = current->value;
-    while (current)
-    {
-        if (current->value < min_value)
-            min_value = current->value;
-        current = current->next;
-    }
-    current = *stack_a;
-    while (current)
-    {
-        current->value -= min_value;
-	current = current->next;
-    }
+	t_list	*current;
+	t_list	*temp;
+	int		index;
+
+	current = *stack_a;
+	while (current)
+	{
+		index = 0;
+		temp = *stack_a;
+		while (temp)
+		{
+			if (current->value > temp->value)
+				index++;
+			temp = temp->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
+}
+
+int	list_sort(t_list *stack)
+{
+	t_list	*current;
+
+	if (!stack || !stack->next)
+		return (1);
+	current = stack;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }
 
 int get_stack_size(t_list *stack)
 {
-    int size = 0;
+    int size;
     
+    size = 0;
     while (stack)
     {
         size++;
@@ -89,7 +89,3 @@ int get_stack_size(t_list *stack)
     }
     return (size);
 }
-
-
-
-

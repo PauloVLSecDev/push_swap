@@ -14,36 +14,36 @@
 
 void	sort_two(t_list **stack)
 {
-    if ((*stack)->value > (*stack)->next->value)
-        sa(stack);
+	if ((*stack)->value > (*stack)->next->value)
+		sa(stack);
 }
 
 void	sort_three(t_list **stack)
 {
-    int first;   
-    int	second;
-    int third;
+	int	first;
+	int	second;
+	int	third;
 
-    first = (*stack)->value;
-    second = (*stack)->next->value;
-    third = (*stack)->next->next->value;
-
-    if (first > second && second > third)
-    {
-        sa(stack);
-        rra(stack);
-    }
-    else if (first > second && second < third && first > third)
-        ra(stack);
-    else if (first > second && second < third && first < third) sa(stack);
-    else if (first < second && second > third && first < third)
-    {
-        sa(stack);
-        ra(stack);
-    }
-    else if (first < second && second > third && first > third)
-        rra(stack);
-    return ;
+	first = (*stack)->value;
+	second = (*stack)->next->value;
+	third = (*stack)->next->next->value;
+	if (first > second && second > third)
+	{
+		sa(stack);
+		rra(stack);
+	}
+	else if (first > second && second < third && first > third)
+		ra(stack);
+	else if (first > second && second < third && first < third)
+		sa(stack);
+	else if (first < second && second > third && first < third)
+	{
+		sa(stack);
+		ra(stack);
+	}
+	else if (first < second && second > third && first > third)
+		rra(stack);
+	return ;
 }
 
 void	sort_four(t_list **stack_a, t_list **stack_b)

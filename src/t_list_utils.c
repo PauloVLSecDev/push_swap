@@ -1,6 +1,6 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */ 
+/*                                                        :::      ::::::::   */
 /*   t_list_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
@@ -14,7 +14,8 @@
 
 t_list	*creat_node(int value)
 {
-	t_list *new_node;
+	t_list	*new_node;
+
 	new_node = (t_list *)malloc(sizeof(t_list));
 	if (!new_node)
 		return (NULL);
@@ -77,15 +78,15 @@ int	list_sort(t_list *stack)
 	return (1);
 }
 
-int get_stack_size(t_list *stack)
+int	get_stack_size(t_list *stack)
 {
-    int size;
-    
-    size = 0;
-    while (stack)
-    {
-        size++;
-        stack = stack->next;
-    }
-    return (size);
+	int	size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }

@@ -12,79 +12,70 @@
 
 #include "../include/push_swap.h"
 
-void    pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-   t_list *temp; 
+	t_list	*temp;
 
-   if (!*stack_b)
-       return ;
-   temp = *stack_b;
-   *stack_b = (*stack_b)->next;
-
-   temp->next = *stack_a;
-   *stack_a = temp;
-    ft_printf("pa\n");
-   return ;
+	if (!*stack_b)
+		return ;
+	temp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	temp->next = *stack_a;
+	*stack_a = temp;
+	ft_printf("pa\n");
+	return ;
 }
 
-void sa(t_list **stack_a)
+void	sa(t_list **stack_a)
 {
-    int     temp;
-    t_list *first;
-    t_list *second;
-    
-    if (!*stack_a || !(*stack_a)->next)
-        return ;
-    first = *stack_a;
-    second = first->next;
+	int		temp;
+	t_list	*first;
+	t_list	*second;
 
-    temp = first->value;
-    first->value = second->value;
-    second->value = temp;
-    ft_printf("sa\n");
-    return ;
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
+	first = *stack_a;
+	second = first->next;
+	temp = first->value;
+	first->value = second->value;
+	second->value = temp;
+	ft_printf("sa\n");
+	return ;
 }
 
-void    ra(t_list **stack_a)
+void	ra(t_list **stack_a)
 {
-    t_list *first;
-    t_list *last;
-    
-    if (!*stack_a || !(*stack_a)->next)
-        return ;
-    
-    first = *stack_a;
-    
-    *stack_a = first->next;
-    
-    last = *stack_a;
-    while (last->next != NULL)
-        last = last->next;
-    last->next = first;
-    first->next = NULL;
-    ft_printf("ra\n");
-}
-    
-void rra(t_list **stack_a)
-{
-    t_list *current;
-    t_list *previous;
-    
-    if (!*stack_a || !(*stack_a)->next)
-        return;
-    
-    current = *stack_a;
-    previous = NULL;
-    
-    while (current->next != NULL)
-    {
-        previous = current;
-        current = current->next;
-    }
-    
-    current->next = *stack_a;
-    previous->next = NULL;
-    *stack_a = current;
-    ft_printf("rra\n");
+	t_list	*first;
+	t_list	*last;
+
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
+	first = *stack_a;
+	*stack_a = first->next;
+	last = *stack_a;
+	while (last->next != NULL)
+		last = last->next;
+	last->next = first;
+	first->next = NULL;
+	ft_printf("ra\n");
 }
 
+void	rra(t_list **stack_a)
+{
+	t_list	*current;
+	t_list	*previous;
+
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
+	current = *stack_a;
+	previous = NULL;
+	while (current->next != NULL)
+	{
+		previous = current;
+		current = current->next;
+	}
+	current->next = *stack_a;
+	previous->next = NULL;
+	*stack_a = current;
+	ft_printf("rra\n");
+}

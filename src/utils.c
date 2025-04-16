@@ -56,7 +56,7 @@ void	check_double(char **args, int num, int i, char *str)
 		if (ft_atoi(args[i]) == num)
 		{
 			free_array(args);
-			ft_error("ERROR double numbers", 6,  str);
+			ft_error("ERROR double numbers", 6, str);
 		}
 		i++;
 	}

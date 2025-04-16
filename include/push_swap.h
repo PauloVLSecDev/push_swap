@@ -33,7 +33,7 @@ void				check_range_of_number(char **number, char *str);
 void				check_double(char **args, int num, int i, char *str);
 long long			ft_atoll(char *str);
 int					main(int argc, char **argv);
-void				ft_error(char *msg, int code,  void *str);
+void				ft_error(char *msg, int code, void *str);
 int					ft_isnum(char *args);
 void				normalize_stack(t_list **stack_a);
 int					get_stack_size(t_list *stack);

@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	str = init_str(argc, argv);
 	if (str)
-	check_arguments(argc, argv, str);
+		check_arguments(argc, argv, str);
 	stack_a = init_stack(argc, str, NULL);
 	if (!stack_a)
 		return (1);

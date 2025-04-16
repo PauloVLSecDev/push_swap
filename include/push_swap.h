@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:15 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/15 19:55:22 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:26:22 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int					get_max_bits(t_list *stack);
 void				free_stack(t_list **stack);
 int					find_position(t_list *stack, int index);
 
+void				double_ra(t_list **stack_a);
 void				pa(t_list **stack_a, t_list **stack_b);
 void				pb(t_list **stack_a, t_list **stack_b);
 void				sa(t_list **stack_a);

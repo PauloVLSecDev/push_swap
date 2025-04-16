@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:26:16 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/14 17:04:27 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:26:10 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ void	free_stack(t_list **stack)
 		free(temp);
 	}
 	*stack = NULL;
+}
+
+void	double_ra(t_list **stack_a)
+{
+	if (!stack_a)
+		return ;
+	ra(stack_a);
+	ra(stack_a);
+	return ;
 }
 
 int	find_position(t_list *stack, int index)

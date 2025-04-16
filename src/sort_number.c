@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:53:56 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/15 20:39:21 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:29:08 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,7 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 	if (pos == 1)
 		sa(stack_a);
 	else if (pos == 2)
-	{
-		ra(stack_a);
-		ra(stack_a);
-	}
+		double_ra(stack_a);
 	else if (pos == 3)
 		rra(stack_a);
 	pb(stack_a, stack_b);
@@ -70,24 +67,28 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 void	sort_five(t_list **stack_a, t_list **stack_b)
 {
 	int	pos;
+	int	i;
 
-	pos = find_position(*stack_a, 0);
-	if (pos == 1)
-		sa(stack_a);
-	else if (pos == 2)
+	i = 0;
+	while (i < 2)
 	{
-		ra(stack_a);
-		ra(stack_a);
+		pos = find_position(*stack_a, i);
+		if (pos == 1)
+			sa(stack_a);
+		else if (pos == 2)
+			double_ra(stack_a);
+		else if (pos == 3 && get_stack_size(*stack_a) > 3)
+		{
+			rra(stack_a);
+			rra(stack_a);
+		}
+		else if (pos >= 3)
+			rra(stack_a);
+		pb(stack_a, stack_b);
+		i++;
 	}
-	else if (pos == 3)
-	{
-		rra(stack_a);
-		rra(stack_a);
-	}
-	else if (pos == 4)
-		rra(stack_a);
-	pb(stack_a, stack_b);
-	sort_four(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
 	pa(stack_a, stack_b);
 }
 

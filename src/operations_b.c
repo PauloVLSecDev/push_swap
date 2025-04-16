@@ -6,13 +6,13 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 18:40:17 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/14 15:45:24 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:05:47 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b, char *str)
 {
 	t_list	*temp;
 
@@ -22,11 +22,12 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	*stack_a = (*stack_a)->next;
 	temp->next = *stack_b;
 	*stack_b = temp;
-	ft_printf("pb\n");
+	if (str)
+		ft_printf("%s\n", str);
 	return ;
 }
 
-void	sb(t_list **stack_b)
+void	sb(t_list **stack_b, char *str)
 {
 	int		temp;
 	t_list	*first;
@@ -39,11 +40,12 @@ void	sb(t_list **stack_b)
 	temp = first->value;
 	first->value = second->value;
 	second->value = temp;
-	ft_printf("sb\n");
+	if (str)
+		ft_printf("%s\n", str);
 	return ;
 }
 
-void	rb(t_list **stack_b)
+void	rb(t_list **stack_b, char *str)
 {
 	t_list	*first;
 	t_list	*last;
@@ -57,10 +59,12 @@ void	rb(t_list **stack_b)
 		last = last->next;
 	last->next = first;
 	first->next = NULL;
-	ft_printf("rb\n");
+	if (str)
+		ft_printf("%s\n", str);
+	return ;
 }
 
-void	rrb(t_list **stack_b)
+void	rrb(t_list **stack_b, char *str)
 {
 	t_list	*current;
 	t_list	*previous;
@@ -77,5 +81,7 @@ void	rrb(t_list **stack_b)
 	current->next = *stack_b;
 	previous->next = NULL;
 	*stack_b = current;
-	ft_printf("rrb\n");
+	if (str)
+		ft_printf("%s\n", str);
+	return ;
 }

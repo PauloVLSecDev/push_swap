@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:42:23 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/14 16:43:37 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:19:36 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	sort_radix(t_list **stack_a, t_list **stack_b)
 		while (j < size)
 		{
 			if ((((*stack_a)->index >> i) & 1) == 1)
-				ra(stack_a);
+				ra(stack_a, "ra");
 			else
-				pb(stack_a, stack_b);
+				pb(stack_a, stack_b, "pb");
 			j++;
 		}
 		while (*stack_b)
-			pa(stack_a, stack_b);
+			pa(stack_a, stack_b, "pa");
 		i++;
 	}
 }

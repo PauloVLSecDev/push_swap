@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:15 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/16 16:26:22 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:58:47 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef struct s_list
 }					t_list;
 
 t_list				*creat_node(int value);
-t_list				*init_stack(int argc, char *str, t_list *stack_a);
+t_list				*init_stack(char *str, t_list *stack_a);
 int					list_sort(t_list *stack);
 void				push_back(t_list **stack, t_list *new_node);
-void				check_arguments(int argc, char **argv, char *str);
+void				check_arguments(char **argv, char *str);
 void				check_range_of_number(char **number, char *str);
 void				check_double(char **args, int num, int i, char *str);
 long long			ft_atoll(char *str);
@@ -38,6 +38,7 @@ int					ft_isnum(char *args);
 void				normalize_stack(t_list **stack_a);
 int					get_stack_size(t_list *stack);
 char				*init_str(int argc, char **argv);
+void				is_null(char **argv, int argc);
 
 void				sort_two(t_list **stack);
 void				sort_three(t_list **stack);
@@ -50,16 +51,16 @@ void				free_stack(t_list **stack);
 int					find_position(t_list *stack, int index);
 
 void				double_ra(t_list **stack_a);
-void				pa(t_list **stack_a, t_list **stack_b);
-void				pb(t_list **stack_a, t_list **stack_b);
-void				sa(t_list **stack_a);
-void				sb(t_list **stack_b);
-void				ra(t_list **stack_a);
-void				rb(t_list **stack_b);
-void				rra(t_list **stack_a);
-void				rrb(t_list **stack_b);
-// void    ss(t_list **stack_a, t_list **stack_b);
-// void    rr(t_list **stack_a, t_list **stack_b);
-// void    rrr(t_list **stack_a, t_list **stack_b);
+void				pa(t_list **stack_a, t_list **stack_b, char *str);
+void				pb(t_list **stack_a, t_list **stack_b, char *str);
+void				sa(t_list **stack_a, char *str);
+void				sb(t_list **stack_b, char *str);
+void				ra(t_list **stack_a, char *str);
+void				rb(t_list **stack_b, char *str);
+void				rra(t_list **stack_a, char *str);
+void				rrb(t_list **stack_b, char *str);
+void				ss(t_list **stack_a, t_list **stack_b);
+void				rr(t_list **stack_a, t_list **stack_b);
+void				rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

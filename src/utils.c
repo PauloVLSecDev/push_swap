@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:33:39 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/15 19:54:02 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:39:45 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -42,7 +42,7 @@ void	check_range_of_number(char **number, char *str)
 	while (number[i] != NULL)
 	{
 		if (ft_atoll(number[i]) < int_min || ft_atoll(number[i]) > int_max)
-			ft_error("Number out range", 8, str);
+			ft_error("Error", 8, str);
 		i++;
 	}
 	return ;
@@ -56,7 +56,7 @@ void	check_double(char **args, int num, int i, char *str)
 		if (ft_atoi(args[i]) == num)
 		{
 			free_array(args);
-			ft_error("ERROR double numbers", 6, str);
+			ft_error("Error", 6, str);
 		}
 		i++;
 	}

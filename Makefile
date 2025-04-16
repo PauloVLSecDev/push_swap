@@ -6,7 +6,7 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 14:36:16 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/04/16 17:14:49 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/04/16 20:06:07 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC =	$(DIR)main.c \
 	$(DIR)t_list_utils.c \
 	$(DIR)operations_a.c \
 	$(DIR)operations_b.c \
+	$(DIR)Both_operations.c \
 	$(DIR)sort_number.c \
 	$(DIR)radix.c \
 	$(DIR)bits_funcs.c \

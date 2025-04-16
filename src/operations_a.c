@@ -6,13 +6,13 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:33:19 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/14 15:44:37 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:40:20 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b, char *str)
 {
 	t_list	*temp;
 
@@ -22,11 +22,12 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	*stack_b = (*stack_b)->next;
 	temp->next = *stack_a;
 	*stack_a = temp;
-	ft_printf("pa\n");
+	if (str)
+		ft_printf("%s\n", str);
 	return ;
 }
 
-void	sa(t_list **stack_a)
+void	sa(t_list **stack_a, char *str)
 {
 	int		temp;
 	t_list	*first;
@@ -39,11 +40,12 @@ void	sa(t_list **stack_a)
 	temp = first->value;
 	first->value = second->value;
 	second->value = temp;
-	ft_printf("sa\n");
+	if (str)
+		ft_printf("%s\n", str);
 	return ;
 }
 
-void	ra(t_list **stack_a)
+void	ra(t_list **stack_a, char *str)
 {
 	t_list	*first;
 	t_list	*last;
@@ -57,10 +59,12 @@ void	ra(t_list **stack_a)
 		last = last->next;
 	last->next = first;
 	first->next = NULL;
-	ft_printf("ra\n");
+	if (str)
+		ft_printf("%s\n", str);
+	return ;
 }
 
-void	rra(t_list **stack_a)
+void	rra(t_list **stack_a, char *str)
 {
 	t_list	*current;
 	t_list	*previous;
@@ -77,5 +81,7 @@ void	rra(t_list **stack_a)
 	current->next = *stack_a;
 	previous->next = NULL;
 	*stack_a = current;
-	ft_printf("rra\n");
+	if (str)
+		ft_printf("%s\n", str);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/16 19:05:44 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:01:43 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	//	is_null(argcn argv);
+	is_null(argv, argc);
 	str = init_str(argc, argv);
 	if (str)
-		check_arguments(argc, argv, str);
-	stack_a = init_stack(argc, str, NULL);
+		check_arguments(argv, str);
+	stack_a = init_stack(str, NULL);
 	if (!stack_a)
 		return (1);
 	if (list_sort(stack_a))
@@ -41,15 +41,13 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-t_list	*init_stack(int argc, char *str, t_list *stack_a)
+t_list	*init_stack(char *str, t_list *stack_a)
 {
 	int		i;
 	char	**args;
 	t_list	*new_node;
 
 	i = 0;
-	if (argc < 2)
-		ft_error("Errors", 9, str);
 	args = ft_split(str, ' ');
 	while (args[i] != NULL)
 	{
@@ -68,15 +66,13 @@ t_list	*init_stack(int argc, char *str, t_list *stack_a)
 	return (stack_a);
 }
 
-void	check_arguments(int argc, char **argv, char *str)
+void	check_arguments(char **argv, char *str)
 {
 	long	num;
 	int		i;
 	char	**args;
 
 	i = 0;
-	if (argc < 2 || !argv[1][0])
-		ft_error("", 7, str);
 	check_range_of_number(argv, str);
 	args = ft_split(str, ' ');
 	if (!args)

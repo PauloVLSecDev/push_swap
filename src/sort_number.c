@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:53:56 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/16 16:29:08 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:42:39 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 }
 
+/*
 void	sort_five(t_list **stack_a, t_list **stack_b)
 {
 	int	pos;
@@ -84,6 +85,36 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 		}
 		else if (pos >= 3)
 			rra(stack_a);
+		pb(stack_a, stack_b);
+		i++;
+	}
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+}
+*/
+
+void	sort_five(t_list **stack_a, t_list **stack_b)
+{
+	int	pos;
+	int	size;
+	int	i;
+
+	i = 0;
+	while (i < 2)
+	{
+		size = get_stack_size(*stack_a);
+		pos = find_position(*stack_a, i);
+		if (pos <= size / 2)
+		{
+			while (pos-- > 0)
+				ra(stack_a);
+		}
+		else
+		{
+			while (pos++ < size)
+				rra(stack_a);
+		}
 		pb(stack_a, stack_b);
 		i++;
 	}

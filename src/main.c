@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/16 15:20:39 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:05:44 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	//	is_null(argcn argv);
 	str = init_str(argc, argv);
 	if (str)
 		check_arguments(argc, argv, str);
@@ -48,7 +49,7 @@ t_list	*init_stack(int argc, char *str, t_list *stack_a)
 
 	i = 0;
 	if (argc < 2)
-		ft_error("ERRORS", 9, str);
+		ft_error("Errors", 9, str);
 	args = ft_split(str, ' ');
 	while (args[i] != NULL)
 	{
@@ -75,17 +76,17 @@ void	check_arguments(int argc, char **argv, char *str)
 
 	i = 0;
 	if (argc < 2 || !argv[1][0])
-		ft_error("ERRORS invalid arguments", 7, str);
+		ft_error("", 7, str);
 	check_range_of_number(argv, str);
 	args = ft_split(str, ' ');
 	if (!args)
-		ft_error("ERRORS invalid arguments", 7, str);
+		ft_error("Errors", 7, str);
 	while (args[i] != NULL)
 	{
 		if (!ft_isnum(args[i]))
 		{
 			free_array(args);
-			ft_error("ERROR don't is number", 5, str);
+			ft_error("Errors", 5, str);
 		}
 		num = ft_atoi(args[i]);
 		check_double(args, num, i, str);

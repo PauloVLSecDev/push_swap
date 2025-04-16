@@ -6,7 +6,7 @@
 #    By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 14:36:16 by pvitor-l          #+#    #+#              #
-#    Updated: 2025/04/14 17:04:08 by pvitor-l         ###   ########.fr        #
+#    Updated: 2025/04/16 17:14:49 by pvitor-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ LIB_DIR = libft
 LIBFT = $(LIB-DIR)/libft.a
 DIR = src/
 GREEN = \033[1;92m
+RESET = \033[0m
 SRC =	$(DIR)main.c \
 	$(DIR)utils.c \
 	$(DIR)errors.c \

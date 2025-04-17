@@ -6,7 +6,7 @@
 /*   By: pvitor-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:23:51 by pvitor-l          #+#    #+#             */
-/*   Updated: 2025/04/16 20:01:43 by pvitor-l         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:57:21 by pvitor-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ void	check_arguments(char **argv, char *str)
 	check_range_of_number(argv, str);
 	args = ft_split(str, ' ');
 	if (!args)
-		ft_error("Errors", 7, str);
+		ft_error("Error", 7, str);
 	while (args[i] != NULL)
 	{
 		if (!ft_isnum(args[i]))
 		{
 			free_array(args);
-			ft_error("Errors", 5, str);
+			ft_error("Error", 5, str);
 		}
 		num = ft_atoi(args[i]);
 		check_double(args, num, i, str);
